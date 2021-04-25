@@ -1,4 +1,5 @@
 import sys
+from os import system, name
 
 def main():
     intro()
@@ -17,9 +18,17 @@ def intro():
 def ask_for_plays():
     """Asks the players what do they play."""
     player_1 = valid_choice('one')
-    
+    clear()
+
     player_2 = valid_choice('two')
     return player_1, player_2
+
+def clear():
+    """Clears the terminal window."""
+    if name == 'nt':
+        _ = system('cls')
+    else:
+        _ = system('clear')
 
 def valid_choice(player_num):
     """Asks for choice and validates it.""" 
